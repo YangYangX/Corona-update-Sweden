@@ -6,28 +6,32 @@
  * contain code that should be seem on all pages.(e.g. navigation bar, topbar and etc.)
  */
 
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { compose } from "redux";
-import {connect} from 'react-redux';
-import {translate} from "react-i18next";
+import { connect } from "react-redux";
+import { translate } from "react-i18next";
 // Import routes
-import routes from '../../configure/routes';
-import {Link} from "react-router-dom";
-import {Icon} from 'evergreen-ui';
+import routes from "../../configure/routes";
+import { Link } from "react-router-dom";
+import { Menu, Button, Icon, Responsive, Visibility } from "semantic-ui-react";
 // Actions
-import {changeLanguage} from './actions';
+import { changeLanguage } from "./actions";
 
 // Selectors
-import {languageSelector} from './selectors';
+import { languageSelector } from "./selectors";
 
 // Style
-import './index.css';
-import {logo,giteeLogo,cnIcon,enIcon} from '../../assets';
+import "./index.css";
+import { logo, giteeLogo, cnIcon, enIcon } from "../../assets";
+
+const getWidth = () => {
+    const isSSR = typeof window === 'undefined'
+    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+};
 
 // Class Framework, basic uiComponent for application
 class Framework extends Component {
-
     /**
      * constructor function
      * @param {*} props
@@ -37,33 +41,47 @@ class Framework extends Component {
     }
 
     render() {
-
-        const {changeLanguage,t} = this.props;
-        const {language} = this.props;
+        const { changeLanguage, t } = this.props;
+        const { language } = this.props;
 
         return (
             <div>
-                <div className={"TopBar"}>
-                    <img src={logo} className={"TopBar-logo"}/>
-                    <nav className={"TopBar-nav"}>
-                        {t("common:doc")}
-                    </nav>
-                    <div className={"TopBar-navRight"}>
-                        {
-                            "cn" == language ? <span style={{cursor: "pointer"}} onClick={()=>{changeLanguage("en")}} className="TopBar-link" > <img src={enIcon} height={24} style={{marginRight:"0.5rem"}}/>English</span>:null
-                        }
-                        {
-                            "en" == language ? <span style={{cursor: "pointer"}} onClick={()=>{changeLanguage("cn")}} className="TopBar-link" > <img src={cnIcon} height={24} style={{marginRight:"0.5rem"}}/>简体中文</span>:null
-                        }
-                    </div>
-                </div>
-                <main style={{ backgroundColor: "#1c1e31",height: "calc(100vh - 56px)", width:"100vw"}}>
+
+
+                <Menu stackable className={"toolbar"} inverted>
+                    <Menu.Item>
+                        <img src={logo} className={"TopBar-logo"} />
+                        <span style={{paddingLeft:"10px"}}>{t("common:doc")}</span>
+                    </Menu.Item>
+                    <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth} as={Menu.Menu} position='right'>
+                        <Menu.Item onClick={()=>{}}>
+                            <Icon name='help' /> {t("common:help")}
+                        </Menu.Item>
+                        <Menu.Item onClick={()=>{
+                            changeLanguage("cn" == language ? "en": "cn")
+                        }}>
+                            {
+                                "cn" == language ? <><img src={enIcon} style={{width:"48px",height:"48px"}} style={{marginRight:"0.5rem"}}/>English</>:null
+                            }
+                            {
+                                "en" == language ? <><img src={cnIcon} style={{width:"48px",height:"48px"}} style={{marginRight:"0.5rem"}}/>简体中文</>:null
+                            }
+
+                        </Menu.Item>
+                    </Responsive>
+                </Menu>
+                <main
+                    style={{
+                        backgroundColor: "#1c1e31",
+                        width: "100vw"
+                    }}
+                >
                     {routes}
                 </main>
-            </div>
-        )
-    }
 
+            </div>
+        );
+    }
 }
 
 // Default props
@@ -89,7 +107,7 @@ const mapStateToProps = state => ({
  *
  * @param {*} dispatch
  */
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     changeLanguage: language => dispatch(changeLanguage(language))
 });
 
@@ -98,5 +116,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 // Export Framework container
 export default compose(
-    translate(['common'], { wait: true }),
-    connect(mapStateToProps, mapDispatchToProps, null, {pure: false}))(Framework);
+    translate(["common"], { wait: true }),
+    connect(mapStateToProps, mapDispatchToProps, null, { pure: false })
+)(Framework);

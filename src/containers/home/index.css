@@ -3,48 +3,26 @@
  */
 
 .main-map-widget {
-    padding: 10px;
-    width: 65vw;
-    height:calc(100vh - 56px);
-}
 
-@media only screen and (max-width: 754px) {
-    .main-map-widget {
-        padding: 10px;
-        width: 100vw;
-        height:calc(100vh - 56px);
-    }
-    .main-pie-widget {
-        display: none;
-    }
-    .main-info-widget{
-        display: none;
-    }
-    .main-line-widget{
-        display: none;
-    }
+    background-color: #293650 !important;
+    width:100%;
+    height:calc(100vh - 53px - 28px);
 }
 
 .main-pie-widget {
-    padding-right: 10px;
-    padding-top: 10px;
-    width: 35vw;
-    height:calc((100vh - 56px)/3);
+    background-color: #293650 !important;
+    width:100%;
 }
 
 .main-info-widget {
-    padding-right: 10px;
-    padding-top: 10px;
-    width: calc(35vw/2);
-    height:calc((100vh - 56px)/3);
+    background-color: #293650 !important;
+    width:100%;
 }
 
 .main-line-widget {
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 35vw;
-    height:calc((100vh - 56px - 3px)/3);
+    background-color: #293650 !important;
+    width:100%;
+
 }
 
 .main-content {
@@ -54,4 +32,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.main-info-case-list * {
+    color: #c4c7d0 !important;
+}
+
+.ui.divided.list>.item:not(:first-child) {
+    border-top : 1px solid rgba(196, 199, 208,.35) !important;
+}
+
+.main-info-counter-text {
+    font-family: "Alibaba-PuHuiTi-Regular" !important;
+    color: #c4c7d0 !important;
+}
+
+.main-info-counter-up {
+    color: #eb4f54 !important;
+    padding-right: 10px !important;
+}
+
+.main-info-counter-ok{
+    color: #70b27c !important;
+    padding-right: 10px !important;
+}
+
+.important-info {
+    color: #eb4f54 !important;
+    font-weight: bold;
 }
