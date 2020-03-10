@@ -1,0 +1,17 @@
+/*
+ * Custom translucent site header
+ */
+@font-face {
+    font-family: Alibaba-PuHuiTi-Regular;
+    src: url(./assets/fonts/Alibaba-PuHuiTi-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: Alibaba-PuHuiTi-Light;
+    src: url(./assets/fonts/Alibaba-PuHuiTi-Light.otf) format('opentype');
+}
+
+@font-face {
+    font-family: Alibaba-PuHuiTi-Bold;
+    src: url(./assets/fonts/Alibaba-PuHuiTi-Bold.otf) format('opentype');
+}

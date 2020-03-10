@@ -1,0 +1,10 @@
+{
+  "common": {
+    "doc": "瑞典冠状病毒病2019（COVID-19）情况摘要[非官方]"
+  },
+  "home": {
+    "welcome": "欢迎使用FC UI Seed!",
+    "description": "zkhoneycomb UI是蜂巢科技开发的一款基于React的UI\n Kit，用来快速构建风格统一的React程序.",
+    "chartTitle": "图表样例"
+  }
+}

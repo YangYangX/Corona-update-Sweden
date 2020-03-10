@@ -1,0 +1,10 @@
+{
+  "common": {
+    "doc": "Coronavirus Disease 2019 (COVID-19) Situation Summary in Sweden [NOT official]"
+  },
+  "home": {
+    "welcome": "Welcome to use FC UI Seed!",
+    "description": "zkhoneycomb UI is a React based UI Kit\n，It is used to build a Uniform style React web application.",
+    "chartTitle": "Chart Sample"
+  }
+}
