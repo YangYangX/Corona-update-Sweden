@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 // UI framework
 import { Pane, Text, Heading } from "evergreen-ui";
-import { Statistic, Grid, Segment, List, Image,Icon } from "semantic-ui-react";
+import { Statistic, Grid, Segment, List, Image,Icon,Transition,Label } from "semantic-ui-react";
 import { logo } from "../../assets";
 import { renderMap, renderRadarChart, renderLineChart } from "./utils/amcharts";
 import { counter } from "./utils/counter";
@@ -52,8 +52,16 @@ class Home extends Component {
         <Grid columns={3} stackable>
           <Grid.Row stretched >
             <Grid.Column width={3}>
-              <Segment className={"main-info-widget"}>
-                <Statistic.Group>
+              <Segment className={"main-info-widget"} raised>
+                <Label color='red' ribbon={"right"} >
+                  <Icon name="treatment" />{t("dashboard:overview")}
+                </Label>
+                <Statistic.Group className={"main-info-counter-group"}>
+                  <Transition
+                      animation={"pulse"}
+                      duration={500}
+                      visible={true}
+                  >
                   <Statistic horizontal size={"huge"}>
                     <Statistic.Value className={"main-info-counter-text"}>
                       <Image src={logo} className="circular inline" />
@@ -61,9 +69,10 @@ class Home extends Component {
                     </Statistic.Value>
                     <Statistic.Label className={"main-info-counter-text"}>{t("dashboard:total")}</Statistic.Label>
                   </Statistic>
+                  </Transition>
                 </Statistic.Group>
                 <br/>
-                <Statistic.Group widths={2}>
+                <Statistic.Group widths={2} className={"main-info-counter-group"}>
                   <Statistic size={"small"}>
                     <Statistic.Value className={"main-info-counter-text"}>
                       <Icon disabled name='caret up' className={"main-info-counter-up"}/>
@@ -79,8 +88,11 @@ class Home extends Component {
                     <Statistic.Label className={"main-info-counter-text"}>{t("dashboard:recovered")}</Statistic.Label>
                   </Statistic>
                 </Statistic.Group>
+
+                <div className={"widget-meta-info"}><Icon disabled name='refresh' /> {t("dashboard:updatedAt")}  2020-03-11 00:03:00</div>
               </Segment>
-              <Segment className={"main-info-widget"}>
+
+              <Segment className={"main-info-widget"} raised>
                 <List divided relaxed className={"main-info-case-list"}>
                   <List.Item>
                     <List.Icon name="marker" />
@@ -119,25 +131,27 @@ class Home extends Component {
                     </List.Content>
                   </List.Item>
                 </List>
+                <div className={"widget-meta-info"}><Icon disabled name='refresh' /> {t("dashboard:updatedAt")}  2020-03-11 00:03:00</div>
               </Segment>
             </Grid.Column>
             <Grid.Column width={8}>
-              <Segment className={"main-map-widget"}>
-                <div id="map-chart" style={{ width: "100%", height: "100%" }} />
+              <Segment className={"main-map-widget"} raised>
+                <div id="map-chart" style={{ width: "100%", height: "100%",paddingBottom:"20px" }} />
+                <div className={"widget-meta-info"}><Icon disabled name='refresh' /> {t("dashboard:updatedAt")}  2020-03-11 00:03:00</div>
               </Segment>
             </Grid.Column>
             <Grid.Column width={5}>
-              <Segment className={"main-pie-widget"}>
+              <Segment className={"main-pie-widget"} raised>
                 <div
                   id="radar-chart"
-                  style={{ width: "100%", height: "100%" }}
-                />
+                  style={{ width: "100%", height: "100%",paddingBottom:"20px" }} />
+                <div className={"widget-meta-info"}><Icon disabled name='refresh' /> {t("dashboard:updatedAt")}  2020-03-11 00:03:00</div>
               </Segment>
-              <Segment className={"main-line-widget"}>
+              <Segment className={"main-line-widget"} raised>
                 <div
                   id="line-chart"
-                  style={{ width: "100%", height: "100%" }}
-                />
+                  style={{ width: "100%", height: "100%",paddingBottom:"20px" }} />
+                <div className={"widget-meta-info"}><Icon disabled name='refresh' /> {t("dashboard:updatedAt")}  2020-03-11 00:03:00</div>
               </Segment>
             </Grid.Column>
           </Grid.Row>

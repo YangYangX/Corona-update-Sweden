@@ -14,7 +14,7 @@ import { translate } from "react-i18next";
 // Import routes
 import routes from "../../configure/routes";
 import { Link } from "react-router-dom";
-import { Menu, Button, Icon, Responsive, Visibility } from "semantic-ui-react";
+import { Menu, Button, Icon, Responsive, Visibility,Segment,Container,Grid,Header,List, Image } from "semantic-ui-react";
 // Actions
 import { changeLanguage } from "./actions";
 
@@ -23,7 +23,7 @@ import { languageSelector } from "./selectors";
 
 // Style
 import "./index.css";
-import { logo, giteeLogo, cnIcon, enIcon } from "../../assets";
+import { logo, zklogo, cnIcon, enIcon } from "../../assets";
 
 const getWidth = () => {
     const isSSR = typeof window === 'undefined'
@@ -52,16 +52,26 @@ class Framework extends Component {
                     <Menu.Item>
                         <img src={logo} className={"TopBar-logo"} />
                         <span style={{paddingLeft:"10px"}}>{t("common:doc")}</span>
+                        <Responsive style={{paddingLeft:"10px"}} getWidth={getWidth} maxWidth={Responsive.onlyTablet.maxWidth} position='right' onClick={()=>{
+                            changeLanguage("cn" === language ? "en": "cn")
+                        }}>
+                            {
+                                "cn" === language ? <><img src={enIcon} style={{width:"32px",height:"32px"}} /></>:null
+                            }
+                            {
+                                "en" == language ? <><img src={cnIcon} style={{width:"32px",height:"32px"}} /></>:null
+                            }
+                        </Responsive>
                     </Menu.Item>
                     <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth} as={Menu.Menu} position='right'>
                         <Menu.Item onClick={()=>{}}>
                             <Icon name='help' /> {t("common:help")}
                         </Menu.Item>
                         <Menu.Item onClick={()=>{
-                            changeLanguage("cn" == language ? "en": "cn")
+                            changeLanguage("cn" === language ? "en": "cn")
                         }}>
                             {
-                                "cn" == language ? <><img src={enIcon} style={{width:"48px",height:"48px"}} style={{marginRight:"0.5rem"}}/>English</>:null
+                                "cn" === language ? <><img src={enIcon} style={{width:"48px",height:"48px"}} style={{marginRight:"0.5rem"}}/>English</>:null
                             }
                             {
                                 "en" == language ? <><img src={cnIcon} style={{width:"48px",height:"48px"}} style={{marginRight:"0.5rem"}}/>简体中文</>:null
@@ -78,7 +88,55 @@ class Framework extends Component {
                 >
                     {routes}
                 </main>
+                <Segment className={"footbar"} >
+                    <Grid  stackable>
+                        <Grid.Row stretched style={{paddingBottom:0}} >
+                            <Grid.Column width={16}>
+                                <Segment className={"footbar"}>
 
+                                    <Grid divided inverted stackable>
+                                        <Grid.Row >
+                                            <Grid.Column width={3}>
+
+                                            </Grid.Column>
+                                            <Grid.Column width={10}>
+
+                                                <Grid >
+                                                    <Grid.Row>
+                                                        <Grid.Column width={4}>
+                                                            <Image src={zklogo} size={"small"}/>
+                                                        </Grid.Column>
+                                                        <Grid.Column width={12}>
+                                                            <Grid>
+                                                                <Grid.Row columns={2}>
+                                                                    <Grid.Column>
+                                                                        <Header inverted as='h4' content={t("common:about")} />
+                                                                        <List link inverted>
+                                                                            <List.Item>{t("common:help")}</List.Item>
+                                                                            <List.Item as='a' href={"mailto: yangy@zkhoneycomb.com"}>{t("common:contact")}</List.Item>
+                                                                        </List>
+                                                                    </Grid.Column>
+                                                                    <Grid.Column>
+                                                                        <Header inverted as='h4' content='© 2020' />
+                                                                    </Grid.Column>
+                                                                </Grid.Row>
+                                                            </Grid>
+                                                        </Grid.Column>
+                                                    </Grid.Row>
+                                                </Grid>
+                                            </Grid.Column>
+                                            <Grid.Column width={3}>
+
+                                            </Grid.Column>
+                                        </Grid.Row>
+                                    </Grid>
+
+                                </Segment>
+
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                </Segment>
             </div>
         );
     }

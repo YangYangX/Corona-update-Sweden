@@ -1,7 +1,9 @@
 {
   "common": {
+    "about": "关于",
     "doc": "(COVID-19) 瑞典冠状病毒情况摘要[非官方]",
-    "help": "帮助"
+    "help": "帮助",
+    "contact": "联系我们"
   },
   "home": {
     "welcome": "欢迎使用FC UI Seed!",
@@ -9,8 +11,10 @@
     "chartTitle": "图表样例"
   },
   "dashboard": {
-    "total": "总共",
+    "overview": "数据总览",
+    "total": "总共患病人数",
     "increased": "新增",
-    "recovered": "治愈"
+    "recovered": "治愈",
+    "updatedAt": "更新于:"
   }
 }
