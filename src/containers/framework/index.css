@@ -168,7 +168,7 @@ code, kbd, samp, tt {
     position: sticky;
     top: 0;
     z-index: 1;
-    z-index: 9
+    z-index: 9;
 }
 
 .TopBar, .TopBar-nav {

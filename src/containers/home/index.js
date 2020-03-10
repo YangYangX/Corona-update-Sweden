@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { illustration, logo } from "../../assets";
 import { Pane, Text, Heading } from "evergreen-ui";
 import { Statistic } from "semantic-ui-react";
+import { Visible, Hidden } from 'react-grid-system';
 // amcharts
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -367,6 +368,7 @@ class Home extends Component {
     dateAxis.renderer.minGridDistance = 168;
     return chart;
   }
+
   componentWillUnmount() {
     if (this.radarChart) {
       this.radarChart.dispose();
