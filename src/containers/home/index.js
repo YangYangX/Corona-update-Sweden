@@ -174,6 +174,7 @@ class Home extends Component {
               </Segment>
 
               <Message
+                info
                 icon="info"
                 header={t("dashboard:infoWarningHead")}
                 content={t("dashboard:infoWarningMsg")}
