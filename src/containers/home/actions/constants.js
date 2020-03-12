@@ -16,3 +16,5 @@ export const AXIOS_FETCH_POSTS_REQUEST = 'coronavirusupdate/dataprovider/AXIOS_F
 export const AXIOS_FETCH_POSTS_START = 'coronavirusupdate/dataprovider/AXIOS_FETCH_POSTS_START';
 export const AXIOS_FETCH_POSTS_SUCCESS = 'coronavirusupdate/dataprovider/AXIOS_FETCH_POSTS_SUCCESS';
 export const AXIOS_FETCH_POSTS_FAILURE = 'coronavirusupdate/dataprovider/AXIOS_FETCH_POSTS_FAILURE';
+
+export const SORT_DATA = "coronavirusupdate/dataprovider/SORT_DATA";

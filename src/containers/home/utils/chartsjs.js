@@ -186,6 +186,26 @@ export const generateCasePerState = (t, data, chart) => {
   chart.data = mapData;
 };
 
+export const generateInfoTablePerState = (data) => {
+
+  let tableData = [];
+
+  if (data.get("states", []).length > 0) {
+    // get increased cases
+    _.forEach(data.get("states"), state =>
+        tableData.push({
+          id: state.id,
+          name: state.name,
+          total: _.reduce(state.data, (sum, item) => sum + parseInt(item.case), 0),
+          increase: parseInt(_.last(state.data).case)
+        })
+    );
+  }
+
+  return tableData;
+};
+
+
 export const getUpdateTime = (data) => {
   return  data.get("updatedAt", "****-**-** --:--:--");
 };

@@ -65,7 +65,7 @@ class Framework extends Component {
                     </Menu.Item>
                     <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth} as={Menu.Menu} position='right'>
                         <Menu.Item onClick={()=>{}}>
-                            <Icon name='help' /> {t("common:help")}
+                             <Link  to="/gdpr"><Icon name='help' /> {t("common:help")}</Link>
                         </Menu.Item>
                         <Menu.Item onClick={()=>{
                             changeLanguage("cn" === language ? "en": "cn")

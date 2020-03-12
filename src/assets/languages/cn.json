@@ -24,6 +24,9 @@
     "trendTitle": "历史数据和趋势",
     "mapTitle": "地图",
     "infoWarningHead": "注意",
-    "infoWarningMsg": "所有信息均取自于网上的其他数据源,对数据的正确性不做保证."
+    "infoWarningMsg": "所有信息均取自于网上的其他数据源,对数据的正确性不做保证.",
+    "state": "区域",
+    "regIncrease": "新增",
+    "regTotal": "总计"
   }
 }

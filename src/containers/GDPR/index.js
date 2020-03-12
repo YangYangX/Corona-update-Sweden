@@ -30,7 +30,7 @@ class GDPRPage extends Component {
   render() {
     const { navTo } = this.props;
     return (
-      <div style={{ paddingBottom: "15px", color: "#c4c7d0"}}>
+      <div style={{ paddingBottom: "15px",paddingLeft: "15px",paddingRight: "15px", color: "#c4c7d0"}}>
         <Grid columns={1} stackable>
           <Grid.Row stretched>
           </Grid.Row>

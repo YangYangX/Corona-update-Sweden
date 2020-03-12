@@ -24,6 +24,9 @@
     "trendTitle": "historical & trends",
     "mapTitle": "Map",
     "infoWarningHead": "Please note",
-    "infoWarningMsg": "All information are fetched from other data sources over internet, there is no guarantee for correctness."
+    "infoWarningMsg": "All information are fetched from other data sources over internet, there is no guarantee for correctness.",
+    "state": "Region",
+    "regIncrease": "Increased",
+    "regTotal": "Total"
   }
 }

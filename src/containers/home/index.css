@@ -20,6 +20,21 @@
     width:100%;
 }
 
+.main-table-widget-color {
+    background-color: #293650 !important;
+    color: #c4c7d0 !important;
+}
+
+.main-table-widget-footer {
+    font-size: 11px !important;
+    text-align: right !important;
+}
+
+.main-table-widget {
+    background-color: #293650 !important;
+    width:100%;
+}
+
 .main-warning-widget {
     background-color: #293650 !important;
     width:100%;

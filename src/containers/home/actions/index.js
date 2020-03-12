@@ -16,7 +16,8 @@ import {
   AXIOS_FETCH_POSTS_REQUEST,
   AXIOS_FETCH_POSTS_START,
   AXIOS_FETCH_POSTS_FAILURE,
-  AXIOS_FETCH_POSTS_SUCCESS
+  AXIOS_FETCH_POSTS_SUCCESS,
+  SORT_DATA
 } from "./constants";
 
 /**
@@ -34,3 +35,6 @@ export const fetchPostsFailure = createAction(AXIOS_FETCH_POSTS_FAILURE,
     () => ({ payload: {},loading: false }));
 export const fetchPostsSuccess = createAction(AXIOS_FETCH_POSTS_SUCCESS,
     (payload) => ({ payload: payload,loading: false }));
+
+export const sortData = createAction(SORT_DATA,
+    (index) => ({ index }));
