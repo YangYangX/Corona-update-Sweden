@@ -2,7 +2,7 @@
   "common": {
     "about": "About",
     "doc": "Coronavirus Disease 2019 (COVID-19) Situation Summary in Sweden",
-    "help": "Help",
+    "help": "GDPR",
     "contact": "Contact us",
     "loading": "loading..."
   },
@@ -22,6 +22,8 @@
     "noNews": "No news for the moment, will keep you updated.",
     "newsTitle": "Breaking news:",
     "trendTitle": "historical & trends",
-    "mapTitle": "Map"
+    "mapTitle": "Map",
+    "infoWarningHead": "Please note",
+    "infoWarningMsg": "All information are fetched from other data sources over internet, there is no guarantee for correctness."
   }
 }

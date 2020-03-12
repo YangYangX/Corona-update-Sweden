@@ -2,7 +2,7 @@
   "common": {
     "about": "关于",
     "doc": "(COVID-19) 瑞典冠状病毒情况摘要",
-    "help": "帮助",
+    "help": "GDPR",
     "contact": "联系我们",
     "loading": "正在加载..."
   },
@@ -22,6 +22,8 @@
     "noNews": "暂无新闻",
     "newsTitle": "最新消息:",
     "trendTitle": "历史数据和趋势",
-    "mapTitle": "地图"
+    "mapTitle": "地图",
+    "infoWarningHead": "注意",
+    "infoWarningMsg": "所有信息均取自于网上的其他数据源,对数据的正确性不做保证."
   }
 }

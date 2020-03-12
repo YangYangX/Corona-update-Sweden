@@ -24,6 +24,7 @@ import {
   Transition,
   Label,
   Dimmer,
+  Message,
   Loader
 } from "semantic-ui-react";
 import { logo } from "../../assets";
@@ -155,6 +156,8 @@ class Home extends Component {
                   <Icon disabled name="refresh" /> {t("dashboard:updatedAt")+" "+getUpdateTime(data)}
                 </div>
               </Segment>
+
+              <Message icon='info' header={t("dashboard:infoWarningHead")} content={t("dashboard:infoWarningMsg")} />
 
               <Segment className={"main-info-widget"} raised>
                 <Dimmer active={loading}>

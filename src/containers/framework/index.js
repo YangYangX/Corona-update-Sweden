@@ -111,7 +111,7 @@ class Framework extends Component {
                                                                     <Grid.Column width={10}>
                                                                         <Header inverted as='h4' content={t("common:about")} />
                                                                         <List link inverted>
-                                                                            <List.Item>{t("common:help")}</List.Item>
+                                                                            <List.Item><Link  to="/gdpr"> {t("common:help")}</Link></List.Item>
                                                                             <List.Item as='a' href={"mailto: yangy@zkhoneycomb.com"}>{t("common:contact")}</List.Item>
                                                                         </List>
                                                                     </Grid.Column>
