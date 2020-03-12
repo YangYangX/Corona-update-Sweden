@@ -27,7 +27,10 @@ const initialState = fromJS({ payload: {}, loading: false });
 
 export default handleActions(
   {
-    [fetchPostsStart]: (state, action) => state.mergeDeep(action.payload),
+    [fetchPostsStart]: (state, action) =>
+      state
+        .set("payload", fromJS(action.payload.payload))
+        .set("loading", fromJS(action.payload.loading)),
     [fetchPostsFailure]: (state, action) => state.mergeDeep(action.payload),
     [fetchPostsSuccess]: (state, action) => state.mergeDeep(action.payload)
   },
