@@ -54,7 +54,7 @@ export const generateCaseTrends = (t, data) => {
           borderJoinStyle: "miter",
           pointBorderColor: "#e14d57",
           pointBackgroundColor: "#e14d57",
-          pointBorderWidth: 1,
+          pointBorderWidth: 5,
           pointHoverRadius: 5,
           pointHoverBackgroundColor: "#e14d57",
           pointHoverBorderColor: "#e14d57",
@@ -76,7 +76,7 @@ export const generateCaseTrends = (t, data) => {
           borderJoinStyle: "miter",
           pointBorderColor: "#ffc617",
           pointBackgroundColor: "#ffc617",
-          pointBorderWidth: 1,
+          pointBorderWidth: 5,
           pointHoverRadius: 5,
           pointHoverBackgroundColor: "#ffc617",
           pointHoverBorderColor: "#ffc617",
@@ -98,7 +98,7 @@ export const generateCaseTrends = (t, data) => {
           borderJoinStyle: "miter",
           pointBorderColor: "#1b262c",
           pointBackgroundColor: "#1b262c",
-          pointBorderWidth: 1,
+          pointBorderWidth: 5,
           pointHoverRadius: 5,
           pointHoverBackgroundColor: "#1b262c",
           pointHoverBorderColor: "#1b262c",
@@ -143,6 +143,12 @@ export const generateCaseTrends = (t, data) => {
         ],
         xAxes: [
           {
+            type: 'time',
+            time: {
+              displayFormats: {
+                quarter: 'MMM YYYY'
+              }
+            },
             gridLines: {
               color: "rgba(255,255,255,.25)",
               borderDash: [5],
