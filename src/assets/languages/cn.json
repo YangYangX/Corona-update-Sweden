@@ -1,9 +1,10 @@
 {
   "common": {
     "about": "关于",
-    "doc": "(COVID-19) 瑞典冠状病毒情况摘要[非官方]",
+    "doc": "(COVID-19) 瑞典冠状病毒情况摘要",
     "help": "帮助",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "loading": "正在加载..."
   },
   "home": {
     "welcome": "欢迎使用FC UI Seed!",
@@ -15,6 +16,12 @@
     "total": "总共患病人数",
     "increased": "新增",
     "recovered": "治愈",
-    "updatedAt": "更新于:"
+    "dead": "死亡",
+    "suspect": "疑似",
+    "updatedAt": "更新于:",
+    "noNews": "暂无新闻",
+    "newsTitle": "最新消息:",
+    "trendTitle": "历史数据和趋势",
+    "mapTitle": "地图"
   }
 }

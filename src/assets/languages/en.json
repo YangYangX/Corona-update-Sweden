@@ -1,9 +1,10 @@
 {
   "common": {
     "about": "About",
-    "doc": "Coronavirus Disease 2019 (COVID-19) Situation Summary in Sweden [NOT official]",
+    "doc": "Coronavirus Disease 2019 (COVID-19) Situation Summary in Sweden",
     "help": "Help",
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "loading": "loading..."
   },
   "home": {
     "welcome": "Welcome to use FC UI Seed!",
@@ -15,6 +16,12 @@
     "total": "Total",
     "increased": "Newly increased",
     "recovered": "Recovered",
-    "updatedAt": "Updated:"
+    "dead": "Died",
+    "suspect": "Suspect",
+    "updatedAt": "Updated:",
+    "noNews": "No news for the moment, will keep you updated.",
+    "newsTitle": "Breaking news:",
+    "trendTitle": "historical & trends",
+    "mapTitle": "Map"
   }
 }

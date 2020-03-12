@@ -13,7 +13,7 @@ import createSagaMiddleware from 'redux-saga';
 import { fromJS } from 'immutable';
 
 import rootReducer from './reducers';
-//import rootSaga from "./sagas";
+import rootSaga from "../containers/home/sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -52,7 +52,7 @@ export default (history) => {
       composeEnhancers(...enhancers)
   );
 
-  //sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
 
   // return store
     return { store };

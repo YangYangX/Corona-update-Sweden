@@ -14,7 +14,7 @@ import { translate } from "react-i18next";
 // Import routes
 import routes from "../../configure/routes";
 import { Link } from "react-router-dom";
-import { Menu, Button, Icon, Responsive, Visibility,Segment,Container,Grid,Header,List, Image } from "semantic-ui-react";
+import { Menu, Button, Icon, Responsive, Visibility,Segment,Container,Grid,Header,List, Image,Item } from "semantic-ui-react";
 // Actions
 import { changeLanguage } from "./actions";
 
@@ -27,7 +27,7 @@ import { logo, zklogo, cnIcon, enIcon } from "../../assets";
 
 const getWidth = () => {
     const isSSR = typeof window === 'undefined'
-    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+    return isSSR ? Responsive.onlyMobile.minWidth : window.innerWidth
 };
 
 // Class Framework, basic uiComponent for application
@@ -51,8 +51,8 @@ class Framework extends Component {
                 <Menu stackable className={"toolbar"} inverted>
                     <Menu.Item>
                         <img src={logo} className={"TopBar-logo"} />
-                        <span style={{paddingLeft:"10px"}}>{t("common:doc")}</span>
-                        <Responsive style={{paddingLeft:"10px"}} getWidth={getWidth} maxWidth={Responsive.onlyTablet.maxWidth} position='right' onClick={()=>{
+                        <span style={{paddingLeft:"10px",paddingRight:"10px"}}>{t("common:doc")}</span>
+                        <Responsive style={{position:"absolute",right:"10px"}} getWidth={getWidth} maxWidth={Responsive.onlyMobile.maxWidth} position='right' onClick={()=>{
                             changeLanguage("cn" === language ? "en": "cn")
                         }}>
                             {
@@ -88,6 +88,7 @@ class Framework extends Component {
                 >
                     {routes}
                 </main>
+                <Responsive getWidth={getWidth} maxWidth={Responsive.onlyMobile.maxWidth} >
                 <Segment className={"footbar"} >
                     <Grid  stackable>
                         <Grid.Row stretched style={{paddingBottom:0}} >
@@ -96,37 +97,32 @@ class Framework extends Component {
 
                                     <Grid divided inverted stackable>
                                         <Grid.Row >
-                                            <Grid.Column width={3}>
 
-                                            </Grid.Column>
-                                            <Grid.Column width={10}>
+                                            <Grid.Column width={16}>
 
                                                 <Grid >
                                                     <Grid.Row>
-                                                        <Grid.Column width={4}>
+                                                        <Grid.Column width={8}>
                                                             <Image src={zklogo} size={"small"}/>
                                                         </Grid.Column>
-                                                        <Grid.Column width={12}>
+                                                        <Grid.Column width={8}>
                                                             <Grid>
-                                                                <Grid.Row columns={2}>
-                                                                    <Grid.Column>
+                                                                <Grid.Row >
+                                                                    <Grid.Column width={10}>
                                                                         <Header inverted as='h4' content={t("common:about")} />
                                                                         <List link inverted>
                                                                             <List.Item>{t("common:help")}</List.Item>
                                                                             <List.Item as='a' href={"mailto: yangy@zkhoneycomb.com"}>{t("common:contact")}</List.Item>
                                                                         </List>
                                                                     </Grid.Column>
-                                                                    <Grid.Column>
-                                                                        <Header inverted as='h4' content='© 2020' />
+                                                                    <Grid.Column width={6}>
+                                                                        <span style={{"fontSize":"12px"}}>© 2020</span>
                                                                     </Grid.Column>
                                                                 </Grid.Row>
                                                             </Grid>
                                                         </Grid.Column>
                                                     </Grid.Row>
                                                 </Grid>
-                                            </Grid.Column>
-                                            <Grid.Column width={3}>
-
                                             </Grid.Column>
                                         </Grid.Row>
                                     </Grid>
@@ -137,6 +133,7 @@ class Framework extends Component {
                         </Grid.Row>
                     </Grid>
                 </Segment>
+                </Responsive>
             </div>
         );
     }
