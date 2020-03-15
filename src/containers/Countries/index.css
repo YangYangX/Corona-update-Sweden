@@ -1,0 +1,38 @@
+/*
+ * Custom translucent site header
+ */
+
+ .main-countries-widget-color {
+    background-color: #293650 !important;
+    color: #c4c7d0 !important;
+}
+
+.main-countries-widget-color * {
+    background-color: #293650 !important;
+    color: #c4c7d0 !important;
+}
+
+.main-countries-meta--red-color {
+    background-color: #293650 !important;
+    color: #eb4f54 !important;
+}
+
+.main-countries-widget-footer {
+    font-size: 11px !important;
+    text-align: right !important;
+}
+
+.main-countries-widget {
+    background-color: #293650 !important;
+    width:100%;
+}
+
+.countries-info-counter-up {
+    color: #eb4f54 !important;
+}
+.countries-info-counter-unknown {
+    color: #ffc617 !important;
+}
+.countries-info-counter-ok{
+    color: #70b27c !important;
+}

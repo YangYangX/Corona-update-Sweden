@@ -4,68 +4,80 @@ import * as am4maps from "@amcharts/amcharts4/maps";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_dark from "@amcharts/amcharts4/themes/dark";
 import am4geodata_swedenLow from "@amcharts/amcharts4-geodata/swedenLow";
+import am4geodata_switzerlandLow from "@amcharts/amcharts4-geodata/switzerlandLow";
 
 am4core.useTheme(am4themes_dark);
 am4core.useTheme(am4themes_animated);
 
-export const renderMap = (chartId, mapData) => {
-    let chart = am4core.create(chartId, am4maps.MapChart);
-    // Set map definition
-    chart.geodata = am4geodata_swedenLow;
+export const renderMap = (chartId, countryCode) => {
+  let chart = am4core.create(chartId, am4maps.MapChart);
+  // Set map definition
 
-    // Set projection
-    chart.projection = new am4maps.projections.Miller();
+  switch (countryCode) {
+    case "se":
+      chart.geodata = am4geodata_swedenLow;
+      break;
+    case "ch":
+      chart.geodata = am4geodata_switzerlandLow;
+      break;
+    default:
+      chart.geodata = null;
+      break;
+  }
 
-    // Create map polygon series
-    let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+  // Set projection
+  chart.projection = new am4maps.projections.Miller();
 
-    //Set min/max fill color for each area
-    polygonSeries.heatRules.push({
-        property: "fill",
-        target: polygonSeries.mapPolygons.template,
-        min: am4core.color("#5290e9").brighten(0),
-        max: am4core.color("#eb4f54").brighten(0)
-    });
+  // Create map polygon series
+  let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 
-    // Make map load polygon data (state shapes and names) from GeoJSON
-    polygonSeries.useGeodata = true;
+  //Set min/max fill color for each area
+  polygonSeries.heatRules.push({
+    property: "fill",
+    target: polygonSeries.mapPolygons.template,
+    min: am4core.color("#5290e9").brighten(0),
+    max: am4core.color("#eb4f54").brighten(0)
+  });
 
-    // Set heatmap values for each state
-    polygonSeries.data = [];
+  // Make map load polygon data (state shapes and names) from GeoJSON
+  polygonSeries.useGeodata = true;
 
-    // Set up heat legend
-    let heatLegend = chart.createChild(am4maps.HeatLegend);
-    heatLegend.series = polygonSeries;
-    heatLegend.align = "right";
-    heatLegend.valign = "bottom";
-    heatLegend.width = am4core.percent(20);
-    heatLegend.marginRight = am4core.percent(4);
-    heatLegend.minValue = 0;
-    heatLegend.maxValue = 2000;
+  // Set heatmap values for each state
+  polygonSeries.data = [];
 
-    // Set up custom heat map legend labels using axis ranges
-    let minRange = heatLegend.valueAxis.axisRanges.create();
-    minRange.value = heatLegend.minValue;
-    minRange.label.text = "few";
-    let maxRange = heatLegend.valueAxis.axisRanges.create();
-    maxRange.value = heatLegend.maxValue;
-    maxRange.label.text = "many";
+  // Set up heat legend
+  let heatLegend = chart.createChild(am4maps.HeatLegend);
+  heatLegend.series = polygonSeries;
+  heatLegend.align = "right";
+  heatLegend.valign = "bottom";
+  heatLegend.width = am4core.percent(20);
+  heatLegend.marginRight = am4core.percent(4);
+  heatLegend.minValue = 0;
+  heatLegend.maxValue = 2000;
 
-    // Blank out internal heat legend value axis labels
-    heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function(
-        labelText
-    ) {
-        return "";
-    });
+  // Set up custom heat map legend labels using axis ranges
+  let minRange = heatLegend.valueAxis.axisRanges.create();
+  minRange.value = heatLegend.minValue;
+  minRange.label.text = "few";
+  let maxRange = heatLegend.valueAxis.axisRanges.create();
+  maxRange.value = heatLegend.maxValue;
+  maxRange.label.text = "many";
 
-    // Configure series tooltip
-    let polygonTemplate = polygonSeries.mapPolygons.template;
-    polygonTemplate.tooltipText = "{name}: {value}";
-    polygonTemplate.nonScalingStroke = true;
-    polygonTemplate.strokeWidth = 0.5;
+  // Blank out internal heat legend value axis labels
+  heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function(
+    labelText
+  ) {
+    return "";
+  });
 
-    // Create hover state and set alternative fill color
-    let hs = polygonTemplate.states.create("hover");
-    hs.properties.fill = am4core.color("#5290e9").brighten(-0.3);
-    return {chart,polygonSeries};
+  // Configure series tooltip
+  let polygonTemplate = polygonSeries.mapPolygons.template;
+  polygonTemplate.tooltipText = "{name}: {value}";
+  polygonTemplate.nonScalingStroke = true;
+  polygonTemplate.strokeWidth = 0.5;
+
+  // Create hover state and set alternative fill color
+  let hs = polygonTemplate.states.create("hover");
+  hs.properties.fill = am4core.color("#5290e9").brighten(-0.3);
+  return { chart, polygonSeries };
 };

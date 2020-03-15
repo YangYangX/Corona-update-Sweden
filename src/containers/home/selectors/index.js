@@ -10,6 +10,7 @@
 
 import { createSelector } from "reselect";
 import { fromJS } from "immutable";
+import * as _ from 'lodash';
 
 export const homeSelector = state => state.getIn(["home"], fromJS({payload: {}, loading: false}));
 
@@ -20,3 +21,9 @@ export const dataSelector = createSelector(homeSelector, data =>
 export const loadingSelector = createSelector(homeSelector, data =>
     data.get("loading", false)
 );
+
+export const countrySelector = (state, ownProps) => {
+  return {
+    code: _.get(ownProps,"match.params.country",undefined)
+  };
+};

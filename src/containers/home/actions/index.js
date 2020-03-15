@@ -28,7 +28,7 @@ import {
  * @return {object} An action object
  */
 export const fetchPostsRequest = createAction(AXIOS_FETCH_POSTS_REQUEST,
-    () => ({  }));
+    (countryCode) => ({ countryCode }));
 export const fetchPostsStart = createAction(AXIOS_FETCH_POSTS_START,
     () => ({ payload: {},loading: true }));
 export const fetchPostsFailure = createAction(AXIOS_FETCH_POSTS_FAILURE,

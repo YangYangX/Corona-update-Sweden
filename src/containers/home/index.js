@@ -43,7 +43,7 @@ import {
 // Actions
 import { fetchPostsRequest, sortData } from "./actions";
 // Selectors
-import { dataSelector, loadingSelector } from "./selectors";
+import { dataSelector, loadingSelector,countrySelector } from "./selectors";
 // Style
 import "./index.css";
 
@@ -58,9 +58,9 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const { fetchPostsRequest } = this.props;
-    fetchPostsRequest();
-    this.chart = renderMap("map-chart").polygonSeries;
+    const { fetchPostsRequest,country } = this.props;
+    fetchPostsRequest(country.code);
+    this.chart = renderMap("map-chart", country.code).polygonSeries;
   }
 
   componentWillUnmount() {
@@ -264,7 +264,7 @@ class Home extends Component {
                 <Table.Body>
                   {_.map(tableData, row => (
                     <Table.Row>
-                      <Table.Cell>{row.name}</Table.Cell>
+                      <Table.Cell collapsing>{row.name}</Table.Cell>
                       <Table.Cell>
                         {row.increase == 0 ? (
                           <Icon
@@ -273,7 +273,7 @@ class Home extends Component {
                             inverted
                             color={"green"}
                           />
-                        ) : row.increase > 10 ? (
+                        ) : row.increase > 50 ? (
                           <>
                             {row.increase}
                             <Icon
@@ -303,7 +303,7 @@ class Home extends Component {
                             inverted
                             color={"green"}
                           />
-                        ) : row.total < 10 ? (
+                        ) : row.total < 100 ? (
                           <>{row.total}</>
                         ) : (
                           <>
@@ -373,9 +373,10 @@ Home.propTypes = {};
  *
  * @param {*} state
  */
-const mapStateToProps = state => ({
+const mapStateToProps = (state,ownProps) => ({
   data: dataSelector(state),
-  loading: loadingSelector(state)
+  loading: loadingSelector(state),
+  country: countrySelector(state,ownProps)
 });
 
 /**
@@ -386,7 +387,7 @@ const mapStateToProps = state => ({
  * @param {*} dispatch
  */
 const mapDispatchToProps = dispatch => ({
-  fetchPostsRequest: () => dispatch(fetchPostsRequest()),
+  fetchPostsRequest: (countryCode) => dispatch(fetchPostsRequest(countryCode)),
   sortData: index => dispatch(sortData(index))
 });
 
