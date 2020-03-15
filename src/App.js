@@ -6,7 +6,7 @@ import { ConnectedRouter } from "connected-react-router/immutable";
 import ReactGA from 'react-ga';
 
 import configureStore from './configure/configureStore';
-import { createBrowserHistory } from 'history';
+import { createHashHistory  } from 'history';
 
 // Load application containers
 import Framework from './containers/framework';
@@ -16,7 +16,7 @@ import "./App.css";
 import 'semantic-ui-css/semantic.min.css';
 
 // Create redux store with history
-const history = createBrowserHistory();
+const history = createHashHistory ({hashType:"hashbang"});
 const {store} = configureStore(history);
 
 ReactGA.initialize('UA-160278861-1');

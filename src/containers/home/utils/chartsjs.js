@@ -64,10 +64,11 @@ export const generateCaseTrends = (t, data) => {
           data: _.values(cases)
         },
         {
+          type: 'bar',
           label: t("dashboard:increased"),
           fill: false,
           lineTension: 0.2,
-          backgroundColor: "#fff",
+          backgroundColor: "#ffc617",
           borderColor: "#ffc617",
           borderWidth: 1.5,
           borderCapStyle: "butt",
@@ -87,9 +88,9 @@ export const generateCaseTrends = (t, data) => {
         },
         {
           label: t("dashboard:dead"),
-          fill: false,
+          type: 'bar',
           lineTension: 0.2,
-          backgroundColor: "#fff",
+          backgroundColor: "#1b262c",
           borderColor: "#1b262c",
           borderWidth: 1.5,
           borderCapStyle: "butt",
@@ -143,6 +144,7 @@ export const generateCaseTrends = (t, data) => {
         ],
         xAxes: [
           {
+            stacked: true,
             type: 'time',
             time: {
               displayFormats: {
