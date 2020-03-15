@@ -16,8 +16,8 @@ import Countries from '../containers/Countries';
 const routes = (
     <Switch>
         <Route exact path="/" component={Countries} />
-        <Route exact path="/:country" component={Home} />
-        <Route path="/gdpr" component={GDPRPage} />
+        <Route exact path="/gdpr" component={GDPRPage} />
+        <Route path="/:country" component={Home} />
     </Switch>
 );
 
