@@ -257,6 +257,9 @@ class Home extends Component {
                       {t("dashboard:regIncrease")}
                     </Table.HeaderCell>
                     <Table.HeaderCell>
+                      {t("dashboard:Death")}
+                    </Table.HeaderCell>
+                    <Table.HeaderCell>
                       {t("dashboard:regTotal")}
                     </Table.HeaderCell>
                   </Table.Row>
@@ -296,6 +299,22 @@ class Home extends Component {
                         )}
                       </Table.Cell>
                       <Table.Cell>
+                        {
+                         row.death < 10 ? (
+                          <>{row.death}</>
+                        ) : (
+                          <>
+                            {row.death}
+                            <Icon
+                              size={"small"}
+                              name="exclamation triangle"
+                              inverted
+                              color={"red"}
+                            />
+                          </>
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>
                         {row.total == 0 ? (
                           <Icon
                             size={"small"}
@@ -322,7 +341,7 @@ class Home extends Component {
                 </Table.Body>
                 <Table.Footer>
                   <Table.Row>
-                    <Table.HeaderCell colSpan="3">
+                    <Table.HeaderCell colSpan="4">
                       <div className={"main-table-widget-footer"}>
                         <Icon disabled name="refresh" />{" "}
                         {t("dashboard:updatedAt") + " " + getUpdateTime(data)}

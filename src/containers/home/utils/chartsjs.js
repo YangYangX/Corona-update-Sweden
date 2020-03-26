@@ -192,6 +192,7 @@ export const generateInfoTablePerState = (data) => {
         tableData.push({
           id: state.id,
           name: state.name,
+          death : parseInt(_.last(state.data).died),
           total: _.reduce(state.data, (sum, item) => sum + parseInt(item.case), 0),
           increase: parseInt(_.last(state.data).case)
         })
